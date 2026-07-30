@@ -33,6 +33,8 @@ function wordCheck(box){
 
     let repeats = '';
 
+    //
+
     // Goes through each letter in the row (5 letters)
     box.forEach((element, index) => {
 
