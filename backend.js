@@ -1,4 +1,4 @@
-let word ="whore";
+let word ="bible";
 let row = 1;
 let guess = '';
 
@@ -32,15 +32,11 @@ document.addEventListener('keydown', function(e) {
 function wordCheck(box){
 
     let repeats = '';
-
-    //check
+    guess = guess.toUpperCase();
+    word = word.toUpperCase();
 
     // Goes through each letter in the row (5 letters)
     box.forEach((element, index) => {
-
-        repeats = repeats + guess[index];
-
-        console.log("repeats", `index: ${index}`, repeats.split(guess[index]).length -1 <= word.toUpperCase().split(guess[index]).length -1, repeats.split(guess[index]).length -1, word.toUpperCase().split(guess[index]).length -1);
 
         // Shrink animation for background colours to change
         setTimeout(() => {
@@ -50,8 +46,8 @@ function wordCheck(box){
         }, index * 200); 
 
         // Letters match at the indices background green
-        if(element.innerHTML.toUpperCase() == word[index].toUpperCase()){
-            // repeats = repeats + guess[index];
+        if(guess[index] == word[index]){
+            repeats = repeats + guess[index];
             setTimeout(() => {
                 element.style.backgroundColor = 'green';
                 element.style.border = '2px solid green';
@@ -59,8 +55,8 @@ function wordCheck(box){
         } 
 
         // Check if word includes letter, letter is not in repeats list more than in the actual word, and letter in guessed word appears less then in actual word
-        else if(word.toUpperCase().includes(guess[index].toUpperCase()) && repeats.split(guess[index]).length -1 <= word.toUpperCase().split(guess[index]).length -1 && (guess.split(guess[index]).length -1)-(index) <= word.toUpperCase().split(guess[index]).length -1){
-            // repeats = repeats + guess[index];
+        else if(word.includes(guess[index]) && guess.substring(index, guess.length).split(guess[index]).length-1 <= word.split(guess[index]).length-1 && repeats.split(guess[index]).length-1 < word.split(guess[index]).length-1){
+            repeats = repeats + guess[index];
             setTimeout(() => {
                 element.style.backgroundColor = 'orange';
                 element.style.border = '2px solid orange';
@@ -75,7 +71,7 @@ function wordCheck(box){
 
     });
 
-    if(guess == word.toUpperCase()){
+    if(guess == word){
         box.forEach((element, index) => {
             setTimeout(() => {
                 element.classList.remove('bounce', 'shrink');
