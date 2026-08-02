@@ -1,6 +1,7 @@
 let word ="bible";
 let row = 1;
 let guess = '';
+let status = 'play';
 
 document.addEventListener('keydown', function(e) {
     let box = document.querySelectorAll(`.guess-${row}`);
@@ -8,16 +9,14 @@ document.addEventListener('keydown', function(e) {
     if(e.key == 'Enter' && guess.length == 5){
         wordCheck(box);
     }
-
-    if (e.key.length === 1 && e.key.toLowerCase() !== e.key.toUpperCase() && guess.length <5){
+    else if(e.key.length === 1 && e.key.toLowerCase() !== e.key.toUpperCase() && guess.length <5 && status == 'play'){
         guess = guess + e.key.toUpperCase();
 
         box.forEach((element, index) => {
             element.innerHTML = guess[index] ?? '';
         });
     }
-
-    if(e.key == 'Backspace'){
+    else if(e.key == 'Backspace'){
         if(guess !== ''){
             guess = guess.substring(0,guess.length-1);
 
@@ -79,13 +78,17 @@ function wordCheck(box){
                 element.classList.add('bounce');
             }, (index * 200) + 1250); 
         });
-    }
 
+        status = 'end';
+
+    }
+    else if(row < 6){
+        row++;
+    }
+    else{
+        console.log("u trash");
+        status = 'end';
+    }
     guess = '';
-
-    row++;
-    if(row > 6){
-        row = 1;
-    }
 }
 

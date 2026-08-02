@@ -3,7 +3,6 @@ html, body{
     padding: 0%;
     background-color: rgb(15, 15, 15);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: bold;
     height: 100vh;
 }
 *{
@@ -21,12 +20,37 @@ header{
     h1{
         font-size: 3rem;
     }
-    p{
-        cursor: pointer;
-        border: 1px solid white;
-        padding: 5px;
-        border-radius: 50%;
+    *{
+        margin: 1rem;
     }
+}
+
+.help{
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    cursor: pointer;
+    border: 2px solid white;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+.help:hover .helpContent{
+    visibility: visible;
+}
+.helpContent{
+    visibility: hidden;
+    background-color: black;
+    border: 2px solid rgb(68, 68, 68);
+    color: white;
+    position: absolute;
+    padding: 10px;
+    border-radius: 10px;
+    top: 0%; left: 100%;
+    width: 18rem;
+    font-size: 1rem;
+    text-align: left;
 }
 
 .word-rows{
@@ -40,7 +64,7 @@ header{
 
     div{
         display: block;
-        border: 2px solid rgb(68, 68, 68);
+        border: 3px solid rgb(68, 68, 68);
         color: white;
         font-size: 2rem;
         text-align: center;
@@ -87,5 +111,17 @@ footer{
 }
 
 footer a{
+    color: white;
+}
+
+.endScreen{
+    visibility: hidden;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid white;
+    width: 200px; height: 300px;
+    border: 3px solid rgb(68, 68, 68); border-radius: 10px;
+    background-color: black;
     color: white;
 }

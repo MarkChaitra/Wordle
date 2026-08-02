@@ -3,19 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="WordleLogo.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <meta name="theme-color" content="rgb(15, 15, 15)">
-    <title>Wordle</title>
+    <title>Wordle - Guessing Word Game</title>
 </head>
 <body>
     
     <header>
         <h1>Wordle</h1>
-        <p>?</p>
+        <p class="help">? 
+            <span class="helpContent">
+                <strong>How to Play</strong><br>
+                Guess the word in 6 tries.<br><br>
+                Each guess must be a valid 5-letter word.<br><br>
+                After each guess, tile colors show how close you were:<br>
+                🟩 Green — letter is correct and in the right spot<br>
+                🟧 Orange — letter is in the word but wrong spot<br>
+                ⬜ Grey — letter is not in the word
+            </span>
+        </p>
     </header>
 
     <main>
+
+        <div class="endScreen"></div>
         <div class="word-rows">
 
             <div class="guess-1"></div>
