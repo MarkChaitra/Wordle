@@ -9,7 +9,6 @@ html, body{
     box-sizing: border-box;
 }
 header{
-    border: 1px solid white;
 
     width: fit-content;
     margin: 3rem auto;
@@ -61,8 +60,9 @@ header{
     gap: 5px 5px;
     width: fit-content;
     margin: 0 auto;
+    position: relative;
 
-    div{
+    div:not(.endScreen){
         display: block;
         border: 3px solid rgb(68, 68, 68);
         color: white;
@@ -78,6 +78,9 @@ header{
 .shrink{
     animation: shrink 1s ease;
 }
+.shake{
+    animation: shake 0.5s ease;
+}
 @keyframes bounce {
     0%{
         transform: translateY(0%);
@@ -87,6 +90,23 @@ header{
     }
     100%{
         transform: translateY(0%);
+    }
+}
+@keyframes shake {
+    0%{
+        transform: translateX(0%);
+    }
+    25%{
+        transform: translateX(-10%);
+    }
+    50%{
+        transform: translateX(10%);
+    }
+    75%{
+        transform: translateX(-10%);
+    }
+    100%{
+        transform: translateX(0%);
     }
 }
 @keyframes shrink {
@@ -117,11 +137,12 @@ footer a{
 .endScreen{
     visibility: hidden;
     position: absolute;
-    top: 50%; left: 50%;
+    top: -5%; left: 50%;
     transform: translate(-50%, -50%);
-    border: 1px solid white;
-    width: 200px; height: 300px;
-    border: 3px solid rgb(68, 68, 68); border-radius: 10px;
-    background-color: black;
-    color: white;
+    width: fit-content; height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: white;
+    color: black;
 }
